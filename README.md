@@ -1,4 +1,1 @@
-van-dyke
-========
-
-Van Dyke games project repository.
+# Quantum Run## Van Dyke Group Games Project### ConfigurationThe *Project* folder contains the Unity project. To open it in Unity for the first time:- Start Unity- File > Open Project- Open Other...- Select the *Project* folderDone!
