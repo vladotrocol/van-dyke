@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Scripts\Dynamic Levelling.js" />
      <Compile Include="Assets\_Scripts\SimplePlayerController.js" />
      <None Include="Assets\_Materials\Readme.txt" />
      <None Include="Assets\_Textures\Readme.txt" />
