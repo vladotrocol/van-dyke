@@ -9,7 +9,7 @@ function Start () {
 	sectionInstance1.AddComponent("MeshRenderer");
 	playerStartPosition = player.transform.position;
 	
-   	var size = sectionInstance1.renderer.bounds;
+   	var size = sectionInstance1.renderer.bounds.size;
 	Debug.Log(size);
 }
 
