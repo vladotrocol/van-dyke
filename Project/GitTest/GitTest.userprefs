@@ -1,8 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\SphereController.js">
     <Files>
       <File FileName="Assets\_Scripts\SphereController.js" Line="14" Column="2" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\SimplePlayerController.js">
+    <Files>
+      <File FileName="Assets\_Scripts\SimplePlayerController.js" Line="1" Column="1" />
+>>>>>>> ca6050c36f76faf61393998e44927f774614d72f
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

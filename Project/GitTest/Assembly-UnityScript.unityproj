@@ -37,6 +37,7 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
+<<<<<<< HEAD
 	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
@@ -48,6 +49,19 @@
      <None Include="Assets\_Scripts\Readme.txt" />
      <None Include="Assets\_Textures\Readme.txt" />
      <None Include="Assets\_Materials\Readme.txt" />
+=======
+	  <HintPath>D:/Tools/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>D:/Tools/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\_Scripts\SimplePlayerController.js" />
+     <None Include="Assets\_Materials\Readme.txt" />
+     <None Include="Assets\_Textures\Readme.txt" />
+     <None Include="Assets\_Scripts\Readme.txt" />
+>>>>>>> ca6050c36f76faf61393998e44927f774614d72f
      <None Include="Assets\_Lights\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
