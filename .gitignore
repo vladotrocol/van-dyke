@@ -2,3 +2,5 @@
 *.pidb
 *.userprefs
 *.sln
+Project/Library
+Project/Temp
