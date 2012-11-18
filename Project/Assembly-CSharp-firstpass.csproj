@@ -50,6 +50,8 @@
      <None Include="Assets\_Scripts\Readme.txt" />
      <None Include="Assets\_Textures\Readme.txt" />
      <None Include="Assets\_Materials\Readme.txt" />
+     <None Include="Assets\_Kinect\_Documents\README.txt" />
+     <None Include="Assets\_Kinect\_Documents\BSD.txt" />
      <None Include="Assets\_Lights\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
