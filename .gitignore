@@ -5,3 +5,4 @@
 *.csproj
 Project/Library
 Project/Temp
+.DS_Store
