@@ -14,13 +14,13 @@ function OnTriggerEnter(other : Collider)
     	StartPos = transform.position;
     }
     else if (other.gameObject.name == "GameOver") {
-    	Application.LoadLevel("GameOVer");
+    	Application.LoadLevel("GameOver");
     }
     else if (other.gameObject.name == "Win") {
     	Application.LoadLevel("Win");
     }
     else if (other.gameObject.name == "monster") {
-    	Application.LoadLevel("GameOVer");
+    	Application.LoadLevel("GameOver");
     }
 }
 
