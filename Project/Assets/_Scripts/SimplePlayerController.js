@@ -19,6 +19,9 @@ function OnTriggerEnter(other : Collider)
     else if (other.gameObject.name == "Win") {
     	Application.LoadLevel("Win");
     }
+    else if (other.gameObject.name == "monster") {
+    	Application.LoadLevel("GameOVer");
+    }
 }
 
 
