@@ -3,6 +3,19 @@
 *.userprefs
 *.sln
 *.csproj
-Project/Library
-Project/Temp
 .DS_Store
+Project/Temp/*
+Project/Library/*
+
+
+!Project/Library/*.asset
+!Project/Library/AssetImportState
+!Project/Library/AssetVersioning.db
+!Project/Library/BuildPlayer.prefs
+!Project/Library/ScriptMapper
+!Project/Library/assetservercachev3
+!Project/Library/expandedItems
+!Project/Library/guidmapper
+!Project/Library/unity default resources
+!Project/Library/unity editor resources
+!Project/Library/metadata/
