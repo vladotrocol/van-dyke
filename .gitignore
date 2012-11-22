@@ -2,6 +2,12 @@
 *.pidb
 *.userprefs
 *.sln
+*.csproj
 Project/Library
+<<<<<<< HEAD
 Project/Temp
 Project/ProjectSettings
+=======
+Project/Temp
+.DS_Store
+>>>>>>> f8bf586f0277a493db4947d608abaea0f1a1f306

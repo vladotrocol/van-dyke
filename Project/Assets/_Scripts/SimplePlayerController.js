@@ -1,8 +1,26 @@
 #pragma strict
+private var StartPos : Vector3;
 
 function Start () {
-
+	StartPos = transform.position;
 }
+
+function OnTriggerEnter(other : Collider)
+{
+    if (other.gameObject.name == "RespawnTile") {
+        transform.position = StartPos;
+    }
+    else if  (other.gameObject.name == "RespawnPoint") {
+    	StartPos = transform.position;
+    }
+    else if (other.gameObject.name == "GameOver") {
+    	Application.LoadLevel("GameOVer");
+    }
+    else if (other.gameObject.name == "Win") {
+    	Application.LoadLevel("Win");
+    }
+}
+
 
 function Update () {
 	if(Input.GetKey(KeyCode.UpArrow)){
