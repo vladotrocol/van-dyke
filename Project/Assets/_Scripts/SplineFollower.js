@@ -15,6 +15,8 @@ var sectionOffset : Vector3;
 var locator : GameObject;
 var newwp : GameObject;
 
+//Attach this script to Player object, then assign Section1 prefab to Current Section variable in Inspector
+
 function GeneratePoint()
 {
 Mwaypoint = new GameObject[4];
