@@ -12,6 +12,8 @@ var right: boolean;
 var currentSection : GameObject;
 var mysection :  GameObject;
 var sectionOffset : Vector3;
+var locator : GameObject;
+var newwp : GameObject;
 
 function GeneratePoint()
 {
@@ -21,30 +23,35 @@ if (Mwaypoint.length != 0)
 	for (var i = 0; i < Mwaypoint.length; i++)
 	{
 		Destroy(Mwaypoint[i]);
+		Destroy(Lwaypoint[i]);
+		Destroy(Rwaypoint[i]);
 	}
 }
 	for (i = 0; i < 4; i++)
 	{
-		var newwp = new GameObject();
-		newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x/2), 0.0f, 0.0f);
-		newwp.transform.position.y = transform.position.y;
+		newwp = Instantiate(locator, Vector3(-mysection.Find("pCube1").transform.renderer.bounds.size.x/2,
+		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation);
+		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
+		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x/2), 0.0f, 0.0f);
+		//newwp.transform.position.y = 1.207709;
 		Mwaypoint[i] = newwp;
 	}
 	for (i = 0; i < 4; i++)
 	{
-		newwp = new GameObject();
-		newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		newwp.transform.Translate(0.0f, 0.0f, 0.0f);
-		newwp.transform.position.y = transform.position.y;
+		newwp = Instantiate(locator, Vector3(-1.0f,
+		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation);
+		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
+		//newwp.transform.Translate(-1.0f, 0.0f, 0.0f);
+		//newwp.transform.position.y = 1.207709;
 		Rwaypoint[i] = newwp;
 	}
 	for (i = 0; i < 4; i++)
 	{
-		newwp = new GameObject();
-		newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x), 0.0f, 0.0f);
-		newwp.transform.position.y = transform.position.y;
+		newwp = Instantiate(locator, Vector3((-mysection.Find("pCube1").transform.renderer.bounds.size.x)+1,
+		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation);
+		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
+		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x)+1, 0.0f, 0.0f);
+		//newwp.transform.position.y = 1.207709;
 		Lwaypoint[i] = newwp;
 	}
 }
@@ -54,6 +61,7 @@ function Start () {
 	middle = true;
 	left = false;
 	right = false;
+	locator = new GameObject();
 	sectionOffset = Vector3(0.0f,0.0f,0.0f);
 	mysection = Instantiate(currentSection, sectionOffset, transform.rotation);	
 		GeneratePoint();
