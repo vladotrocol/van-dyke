@@ -1,23 +1,37 @@
 #pragma strict
-
 var Mwaypoint = new Array();
 var Lwaypoint = new Array();
 var Rwaypoint = new Array();
-static var speed : float = 40;
+static var speed : float = 10;
 static var curwp : int;
 var middle : boolean;
 var left : boolean;
 var right: boolean;
-var currentSection : GameObject;
+var PrefabSections = new Array();
 var mysection :  GameObject;
 var sections = new Array();
 var sectionOffset : Vector3;
 var locator : GameObject;
+var s: Section;
 
 
 //If error about current Section variable come up, assign Section1 prefab to Current Section variable in Inspector
 
-function GeneratePoint()
+function InitializeSections(){
+	 var temparray = Resources.FindObjectsOfTypeAll(typeof(GameObject)); 
+	 var tempp: GameObject;
+	 for(var count =0; count<temparray.length; count++){
+	 	tempp =  temparray[count];
+	 	if(tempp.tag=="Section"){
+	 		PrefabSections.Push(tempp); 
+	 		Debug.Log(tempp.name);
+	 	}
+	 }
+	 
+	 //.Cast<GameObject>().Where(g=>g.tag=="Section").ToList()
+}
+
+function GeneratePoint(section:GameObject)
 {
 if (Mwaypoint.length != 0)
 {
@@ -25,8 +39,8 @@ if (Mwaypoint.length != 0)
 }
 	for (var i = 0; i < 4; i++)
 	{
-		Mwaypoint.Push( Instantiate(locator, Vector3(-mysection.Find("pCube1").transform.renderer.bounds.size.x/2,
-		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
+		Mwaypoint.Push( Instantiate(locator, Vector3(-mysection.transform.renderer.bounds.size.x/2,
+		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
 		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
 		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x/2), 0.0f, 0.0f);
 		//newwp.transform.position.y = 1.207709;
@@ -35,7 +49,7 @@ if (Mwaypoint.length != 0)
 	for (i = 0; i < 4; i++)
 	{
 		Rwaypoint.Push(Instantiate(locator, Vector3(-1.0f,
-		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
+		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
 		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
 		//newwp.transform.Translate(-1.0f, 0.0f, 0.0f);
 		//newwp.transform.position.y = 1.207709;
@@ -43,8 +57,8 @@ if (Mwaypoint.length != 0)
 	}
 	for (i = 0; i < 4; i++)
 	{
-		Lwaypoint.Push(Instantiate(locator, Vector3((-mysection.Find("pCube1").transform.renderer.bounds.size.x)+1,
-		1.207709,((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
+		Lwaypoint.Push(Instantiate(locator, Vector3((-mysection.transform.renderer.bounds.size.x)+1,
+		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
 		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
 		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x)+1, 0.0f, 0.0f);
 		//newwp.transform.position.y = 1.207709;
@@ -57,18 +71,19 @@ if (Mwaypoint.length != 0)
 	}
 }
 
-function Start () {
+function Start () { 
+	InitializeSections();
 	curwp = 0;
 	middle = true;
 	left = false;
 	right = false;
 	locator = new GameObject();
 	sectionOffset = Vector3(0.0f,0.0f,0.0f);
-	mysection = Instantiate(currentSection, sectionOffset, transform.rotation);	
+	s = new Section(PrefabSections[0]);
+	mysection = Instantiate(s.obj, sectionOffset, transform.rotation);	
 	sections.Push(mysection);
-	GeneratePoint();
-	sectionOffset = Vector3(0.0f, 0.0f, mysection.Find("pCube1").transform.renderer.bounds.size.z);
-
+	GeneratePoint(mysection);
+	sectionOffset = Vector3(0.0f, 0.0f, mysection.transform.renderer.bounds.size.z);
 }
 
 function Update () {
@@ -150,13 +165,14 @@ function Update () {
 	if (curwp == Mwaypoint.length)
 	{
 			
-			mysection = Instantiate(currentSection, sectionOffset, transform.rotation);
+			mysection = Instantiate(PrefabSections[Random.Range(0,2)], sectionOffset, transform.rotation);
 			sections.Push(mysection);
-			if(sectionOffset.z>120){			
+			if(sectionOffset.z>60){			
 				Destroy(sections.Shift());
 			}
-			GeneratePoint();
-			sectionOffset = Vector3(0.0f, 0.0f, sectionOffset.z + mysection.Find("pCube1").transform.renderer.bounds.size.z);
+			GeneratePoint(mysection);
+			sectionOffset = Vector3(0.0f, 0.0f, sectionOffset.z + mysection.transform.renderer.bounds.size.z); 
+			Debug.Log( mysection.transform.renderer.bounds.size.z + "  "+ sectionOffset);
 		curwp=0;				
 	}
 }
