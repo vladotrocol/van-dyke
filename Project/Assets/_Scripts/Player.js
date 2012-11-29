@@ -17,10 +17,10 @@ class Player{
 	function moveVehicle(){
 		var vehicle = GameObject.Find("Vehicle");
 		if(Input.GetKey(KeyCode.UpArrow)){
-			vehicle.transform.Translate(0.0f, 0.0f, Time.deltaTime*5.0f);
+			vehicle.transform.Translate(0.0f, 0.0f, Time.deltaTime*10.0f);
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
-			vehicle.transform.Translate(0.0f, 0.0f, -Time.deltaTime*5.0f);
+			vehicle.transform.Translate(0.0f, 0.0f, -Time.deltaTime*10.0f);
 		}
 		if(Input.GetKey(KeyCode.LeftArrow)){
 			vehicle.transform.Rotate(0.0f, -Time.deltaTime*80.0f, 0.0f);
