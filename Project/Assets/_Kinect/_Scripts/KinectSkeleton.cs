@@ -32,14 +32,14 @@ public class KinectSkeleton : MonoBehaviour {
 		new Vector3(1,1,1),		// SPINE
 		new Vector3(1,1,1),		// SHOULDER_CENTER
 		new Vector3(1,1,1),		// HEAD
-		new Vector3(1,1,1),	// SHOULDER_LEFT
-		new Vector3(1,1,1),	// ELBOW_LEFT
+		new Vector3(1,1,1),		// SHOULDER_LEFT
+		new Vector3(1,1,1),		// ELBOW_LEFT
 		new Vector3(1,1,1),		// WRIST_LEFT
-		new Vector3(1,1,1),	// HAND_LEFT
-		new Vector3(1,1,1),	// SHOULDER_RIGHT
-		new Vector3(1,1,1),	// ELBOW_RIGHT
+		new Vector3(1,1,1),		// HAND_LEFT
+		new Vector3(1,1,1),		// SHOULDER_RIGHT
+		new Vector3(1,1,1),		// ELBOW_RIGHT
 		new Vector3(1,1,1),		// WRIST_RIGHT
-		new Vector3(1,1,1),	// HAND_RIGHT
+		new Vector3(1,1,1),		// HAND_RIGHT
 		new Vector3(1,1,1),		// HIP_LEFT
 		new Vector3(1,1,1),		// KNEE_LEFT
 		new Vector3(1,1,1),		// ANKLE_LEFT
@@ -101,11 +101,6 @@ public class KinectSkeleton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetKey(KeyCode.UpArrow))
-			skRightHand.transform.localPosition = new Vector3(0.0f,1.0f,0.0f);
-		else if (Input.GetKey(KeyCode.DownArrow))
-			skLeftHand.transform.localPosition = new Vector3(0.0f,-1.0f,0.0f);
-		
 		for (int i = 0; i < (int)KinectWrapper.Joints.COUNT; i++) {
 			raw_joint_pos[i] = kui.GetJointPos((KinectWrapper.Joints)i);
 		}
@@ -129,6 +124,8 @@ public class KinectSkeleton : MonoBehaviour {
 			
 			joint.Value.transform.localPosition = game_joint_pos[(int)joint.Key];
 		}
+		
+		
 	}
 	
 	
