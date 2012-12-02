@@ -16,17 +16,26 @@ class Player{
 		}
 	}
 	function MoveVehicle(){
+		// Forwards and backwards
 		if(Input.GetKey(KeyCode.UpArrow)){
 			vehicle.transform.Translate(0.0f, 0.0f, Time.deltaTime*10.0f);
 		}
 		else if(Input.GetKey(KeyCode.DownArrow)){
 			vehicle.transform.Translate(0.0f, 0.0f, -Time.deltaTime*10.0f);
 		}
+		// Rotation
 		if(Input.GetKey(KeyCode.LeftArrow)){
 			vehicle.transform.Rotate(0.0f, -Time.deltaTime*80.0f, 0.0f);
 		}
 		else if(Input.GetKey(KeyCode.RightArrow)){
 			vehicle.transform.Rotate(0.0f, Time.deltaTime*80.0f, 0.0f);
+		}
+		// Lateral movement
+		if(Input.GetKey(KeyCode.Comma)){
+			vehicle.transform.Translate(-Time.deltaTime*10.0f, 0.0f, 0.0f);
+		}
+		else if(Input.GetKey(KeyCode.Period)){
+			vehicle.transform.Translate(Time.deltaTime*10.0f, 0.0f, 0.0f);
 		}
 	}
 	
