@@ -91,14 +91,20 @@ public class KinectSkeleton : MonoBehaviour {
 		if (skRightHand != null)
 			add_skeleton_joint (KinectWrapper.Joints.HAND_RIGHT, skRightHand);
 		
-		Gesture test_gesture = new Gesture();
-		test_gesture.constraints.Add( new JointConstraint(	KinectWrapper.Joints.HAND_LEFT,
-															KinectWrapper.Joints.SHOULDER_LEFT,
-															JointConstraint.Relations.COMPONENT_DISTANCE,
-															JointConstraint.Operators.GREATER_THAN,
-															new Vector3(-10.0f, 1.2f, -10.0f) ) );
+		Gesture left_hand = new Gesture("raise-both-hands");
+		left_hand.constraints.Add( new JointConstraint(	KinectWrapper.Joints.HAND_LEFT,
+														KinectWrapper.Joints.SHOULDER_LEFT,
+														JointConstraint.Relations.COMPONENT_DISTANCE,
+														JointConstraint.Operators.GREATER_THAN,
+														new Vector3(-10.0f, 1.2f, -10.0f) ) );
 		
-		gestures.Add( "test-gesture", test_gesture );
+		left_hand.constraints.Add( new JointConstraint(	KinectWrapper.Joints.HAND_RIGHT,
+														KinectWrapper.Joints.SHOULDER_RIGHT,
+														JointConstraint.Relations.COMPONENT_DISTANCE,
+														JointConstraint.Operators.GREATER_THAN,
+														new Vector3(-10.0f, 1.2f, -10.0f) ) );
+		
+		gestures.Add( "raise-both-hands", left_hand );
 	}
 	
 	private void add_skeleton_joint( KinectWrapper.Joints joint, GameObject obj ) {
@@ -133,9 +139,21 @@ public class KinectSkeleton : MonoBehaviour {
 			joint.Value.transform.localPosition = game_joint_pos[(int)joint.Key];
 		}
 		
-		//foreach (Gesture gesture in gestures) {
-		//	
-		//}
+		foreach (KeyValuePair<string, Gesture> pair in gestures) {
+			bool active = true;
+			
+			// check all the joint constraints are true, fail fast on a false joint constraint.
+			foreach (JointConstraint constraint in pair.Value.constraints) {
+				if ( !check_joint_constraint( constraint ) ) {
+					active = false;
+					break;
+				}
+			}
+			
+			if ( active ) {
+				print("active gesture: "+pair.Key);
+			}
+		}
 		
 //		if (check_joint_constraint( gestures["test-gesture"].constraints[0] )) {
 //			print ("hai guise!");
@@ -143,10 +161,10 @@ public class KinectSkeleton : MonoBehaviour {
 //			print ("bai :(");
 //		}
 		
-		print ( "left wrist: "+ raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT] +
-				"left shoulder: "+ raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT] +
-			"diff: "+(raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT].y-raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT].y ) +" is "+check_joint_constraint( gestures["test-gesture"].constraints[0] ) );
-		
+//		print ( "left wrist: "+ raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT] +
+//				"left shoulder: "+ raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT] +
+//			"diff: "+(raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT].y-raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT].y ) +" is "+check_joint_constraint( gestures["test-gesture"].constraints[0] ) );
+//		
 		
 	}
 	
