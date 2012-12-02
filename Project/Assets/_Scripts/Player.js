@@ -8,14 +8,14 @@ class Player{
 		position = p;
 	}
 	/* Takes an integer from the action enum and performs the appropriate action */
-	function action(action:int){
+	function Action(action:int){
 		if(state == 0){
 			// Creator Actions
 		} else if(state == 1){
 			// Destroyer Actions
 		}
 	}
-	function moveVehicle(){
+	function MoveVehicle(){
 		if(Input.GetKey(KeyCode.UpArrow)){
 			vehicle.transform.Translate(0.0f, 0.0f, Time.deltaTime*10.0f);
 		}
@@ -30,7 +30,7 @@ class Player{
 		}
 	}
 	
-	function isDriver(){
+	function IsDriver(){
 		if(this.position == 0){
 			return true;
 		} else { 
@@ -38,17 +38,14 @@ class Player{
 		}
 	}
 	
-	function isGunner(){
+	function IsGunner(){
 		if(this.position == 1){
 			return true;
 		} else { 
 			return false;
 		}
 	}
-	function test(){
-		Debug.Log("TEST FUNCTION");
-	}
-	
+		
 	enum DestoyActions {
 		Bridge = 1,
 	}

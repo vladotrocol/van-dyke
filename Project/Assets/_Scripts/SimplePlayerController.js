@@ -12,7 +12,7 @@ function Start () {
 
 
 function Update () {
-	if(player.isDriver()){
-		player.moveVehicle();
+	if(player.IsDriver()){
+		player.MoveVehicle();
 	}
 }
