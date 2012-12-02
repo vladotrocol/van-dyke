@@ -2,6 +2,7 @@
 class Player{
 	var state = 0; // 0 = Creator. 1 = Destroyer.
 	var position = 0; // 0 = Front. 1 = Back.
+	var vehicle = GameObject.Find("Vehicle");
 	function Player(s:int,p:int){
 		state = s;
 		position = p;
@@ -15,7 +16,6 @@ class Player{
 		}
 	}
 	function moveVehicle(){
-		var vehicle = GameObject.Find("Vehicle");
 		if(Input.GetKey(KeyCode.UpArrow)){
 			vehicle.transform.Translate(0.0f, 0.0f, Time.deltaTime*10.0f);
 		}
