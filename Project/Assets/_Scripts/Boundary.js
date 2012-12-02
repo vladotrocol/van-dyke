@@ -11,9 +11,17 @@ var PrefabSections = new Array();
 var mysection :  GameObject;
 var sections = new Array();
 var sectionOffset : Vector3;
+var curpos : Vector3;
+var nextpos : Vector3;
+var side1 : Vector3;
+var side2 : Vector3;
+var perp : Vector3;
 var locator : GameObject;
 var s: Section;
-
+var a : Vector3;
+var b : Vector3;
+static var timedamp : float = 0.5;
+var velocity :Vector3 = Vector3.zero;
 
 //If error about current Section variable come up, assign Section1 prefab to Current Section variable in Inspector
 
@@ -41,27 +49,17 @@ if (Mwaypoint.length != 0)
 	{
 		Mwaypoint.Push( Instantiate(locator, Vector3(-mysection.transform.renderer.bounds.size.x/2,
 		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
-		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x/2), 0.0f, 0.0f);
-		//newwp.transform.position.y = 1.207709;
-
 	}
 	for (i = 0; i < 4; i++)
 	{
 		Rwaypoint.Push(Instantiate(locator, Vector3(-1.0f,
 		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
-		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		//newwp.transform.Translate(-1.0f, 0.0f, 0.0f);
-		//newwp.transform.position.y = 1.207709;
 
 	}
 	for (i = 0; i < 4; i++)
 	{
 		Lwaypoint.Push(Instantiate(locator, Vector3((-mysection.transform.renderer.bounds.size.x)+1,
 		1.207709,((mysection.transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z), transform.rotation));
-		//newwp.transform.position.z = ((mysection.Find("pCube1").transform.renderer.bounds.size.z ) / 4)*i+sectionOffset.z;
-		//newwp.transform.Translate(-(mysection.Find("pCube1").transform.renderer.bounds.size.x)+1, 0.0f, 0.0f);
-		//newwp.transform.position.y = 1.207709;
 	}
 		for ( i = 0; i < Mwaypoint.length; i++)
 	{
@@ -71,10 +69,30 @@ if (Mwaypoint.length != 0)
 	}
 }
 
+
+/* Gets the midpoint between its two current way points and the vector that is orthogonal to them
+smoothdamp between that vector and the next posistion.
+*/
+function move () {
+	a = Lwaypoint[curwp]; //annoyingly had to do this otherwise they were objects rather than Vector3
+	b = Rwaypoint[curwp];
+	curpos = (a+b)/2;
+	a = Lwaypoint[curwp+1];
+	b = Rwaypoint[curwp+1];
+	nextpos = (a+b)/2;
+	side1 = nextpos-curpos;
+	b = Rwaypoint[curwp];
+	side2 = b - curpos;
+	perp = Vector3.Cross(side1, side2);
+	
+	transform.position = Vector3.SmoothDamp(perp, nextpos, velocity, timedamp);
+		
+}
+
 function Start () { 
 	InitializeSections();
 	curwp = 0;
-	middle = true;
+	//middle = true;
 	left = false;
 	right = false;
 	locator = new GameObject();
@@ -83,7 +101,8 @@ function Start () {
 	mysection = Instantiate(s.obj, sectionOffset, transform.rotation);	
 	sections.Push(mysection);
 	GeneratePoint(mysection);
-	sectionOffset = Vector3(0.0f, 0.0f, mysection.transform.renderer.bounds.size.z);
+	move();
+	//sectionOffset = Vector3(0.0f, 0.0f, mysection.transform.renderer.bounds.size.z);
 }
 
 function Update () {
@@ -93,7 +112,7 @@ line between the two current waypoints. Then use smoothDamp to get to the next m
 Repeat.
 
 */
-	if (Input.GetKey(KeyCode.UpArrow)) { middle = true; left = false; right = false; }
+	/*if (Input.GetKey(KeyCode.UpArrow)) { middle = true; left = false; right = false; }
 	if (Input.GetKey(KeyCode.LeftArrow)) { middle = false; left = true; right = false; }
 	if (Input.GetKey(KeyCode.RightArrow)) { middle = false; left = false; right = true; }
 	if (middle == true)
@@ -179,6 +198,6 @@ Repeat.
 			sectionOffset = Vector3(0.0f, 0.0f, sectionOffset.z + mysection.transform.renderer.bounds.size.z); 
 			Debug.Log( mysection.transform.renderer.bounds.size.z + "  "+ sectionOffset);
 		curwp=0;				
-	}
+	}*/
 }
 
