@@ -50,6 +50,8 @@ public class KinectSkeleton : MonoBehaviour {
 		new Vector3(1,1,1)		// FOOT_RIGHT
 	};
 	
+	private Dictionary<String, Gesture> gestures = new Dictionary<String, Gesture>();
+	
 	// Use this for initialization
 	void Start () {
 		kui.scaleFactor = 10;
@@ -89,8 +91,14 @@ public class KinectSkeleton : MonoBehaviour {
 		if (skRightHand != null)
 			add_skeleton_joint (KinectWrapper.Joints.HAND_RIGHT, skRightHand);
 		
+		Gesture test_gesture = new Gesture();
+		test_gesture.constraints.Add( new JointConstraint(	KinectWrapper.Joints.HAND_LEFT,
+															KinectWrapper.Joints.SHOULDER_LEFT,
+															JointConstraint.Relations.COMPONENT_DISTANCE,
+															JointConstraint.Operators.GREATER_THAN,
+															new Vector3(-10.0f, 1.2f, -10.0f) ) );
 		
-		print(skeleton[KinectWrapper.Joints.HEAD].name);
+		gestures.Add( "test-gesture", test_gesture );
 	}
 	
 	private void add_skeleton_joint( KinectWrapper.Joints joint, GameObject obj ) {
@@ -112,20 +120,77 @@ public class KinectSkeleton : MonoBehaviour {
 				//									joint_scalings[(int)joint.Key]);
 				break;
 			default:
-				print (joint.Value.transform.parent.gameObject.name);
+				//print (joint.Value.transform.parent.gameObject.name);
 				KinectWrapper.Joints parent_joint = inverse_skeleton[joint.Value.transform.parent.gameObject];
 				game_joint_pos[(int)joint.Key] = Vector3.Scale((raw_joint_pos[(int)joint.Key] - raw_joint_pos[(int)parent_joint]),
 													joint_scalings[(int)joint.Key]);
 				break;
 			}
 			
-			if (joint.Key == KinectWrapper.Joints.HAND_RIGHT)
-				print ("right hand: "+raw_joint_pos[(int)joint.Key] + " center shoulder: "+raw_joint_pos[(int)KinectWrapper.Joints.ELBOW_RIGHT]);
+			//if (joint.Key == KinectWrapper.Joints.HAND_RIGHT)
+			//	print ("right hand: "+raw_joint_pos[(int)joint.Key] + " center shoulder: "+raw_joint_pos[(int)KinectWrapper.Joints.ELBOW_RIGHT]);
 			
 			joint.Value.transform.localPosition = game_joint_pos[(int)joint.Key];
 		}
 		
+		//foreach (Gesture gesture in gestures) {
+		//	
+		//}
 		
+//		if (check_joint_constraint( gestures["test-gesture"].constraints[0] )) {
+//			print ("hai guise!");
+//		} else {
+//			print ("bai :(");
+//		}
+		
+		print ( "left wrist: "+ raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT] +
+				"left shoulder: "+ raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT] +
+			"diff: "+(raw_joint_pos[(int)KinectWrapper.Joints.HAND_LEFT].y-raw_joint_pos[(int)KinectWrapper.Joints.SHOULDER_LEFT].y ) +" is "+check_joint_constraint( gestures["test-gesture"].constraints[0] ) );
+		
+		
+	}
+	
+	// joint constraint check
+	bool check_joint_constraint( JointConstraint constraint ) {
+		Vector3 ja, jb;
+		
+		switch (constraint.relation) {
+		case JointConstraint.Relations.DISTANCE:
+			switch (constraint.operation) {
+			case JointConstraint.Operators.GREATER_THAN:
+				return Vector3.Distance(raw_joint_pos[(int)constraint.joint_a], raw_joint_pos[(int)constraint.joint_b]) > constraint.val.x;
+			case JointConstraint.Operators.LESS_THAN:
+				return Vector3.Distance(raw_joint_pos[(int)constraint.joint_a], raw_joint_pos[(int)constraint.joint_b]) < constraint.val.x;
+			default:
+				return false;
+			}
+		case JointConstraint.Relations.COMPONENT_DISTANCE:
+			ja = raw_joint_pos[(int)constraint.joint_a];
+			jb = raw_joint_pos[(int)constraint.joint_b];
+			
+			switch (constraint.operation) {
+			case JointConstraint.Operators.GREATER_THAN:
+				return (ja.x - jb.x) > constraint.val.x && (ja.y - jb.y) > constraint.val.y && (ja.z - jb.z) > constraint.val.z;
+			case JointConstraint.Operators.LESS_THAN:
+				return (ja.x - jb.x) < constraint.val.x && (ja.y - jb.y) < constraint.val.y && (ja.z - jb.z) < constraint.val.z;
+			default:
+				return false;
+			}
+		case JointConstraint.Relations.ABS_COMPONENT_DISTANCE:
+			ja = raw_joint_pos[(int)constraint.joint_a];
+			jb = raw_joint_pos[(int)constraint.joint_b];
+			
+			switch (constraint.operation) {
+			case JointConstraint.Operators.GREATER_THAN:
+				return Math.Abs(ja.x - jb.x) > constraint.val.x && Math.Abs(ja.y - jb.y) > constraint.val.y && Math.Abs(ja.z - jb.z) > constraint.val.z;
+			case JointConstraint.Operators.LESS_THAN:
+				return Math.Abs(ja.x - jb.x) < constraint.val.x && Math.Abs(ja.y - jb.y) < constraint.val.y && Math.Abs(ja.z - jb.z) < constraint.val.z;
+			default:
+				return false;
+			}
+		default:
+			return false;
+		}
 	}
 	
 	
