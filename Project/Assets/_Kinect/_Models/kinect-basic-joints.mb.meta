@@ -1,23 +1,22 @@
 fileFormatVersion: 2
-guid: ac6df3b30019bdd48b78b1ad4df744f1
+guid: c73189472264b234ca4f69c231a56d04
 ModelImporter:
   serializedVersion: 14
   fileIDToRecycleName:
-    100000: body
-    100002: //RootNode
-    100004: left_arm
-    100006: left_gun
+    100000: //RootNode
+    100002: left_gun
+    100004: body
+    100006: right_gun
     100008: right_arm
-    100010: right_gun
-    400000: body
-    400002: //RootNode
-    400004: left_arm
-    400006: left_gun
+    100010: left_arm
+    400000: //RootNode
+    400002: left_gun
+    400004: body
+    400006: right_gun
     400008: right_arm
-    400010: right_gun
+    400010: left_arm
     4300000: right_gun
     4300002: left_gun
-    9500000: //RootNode
     11100000: //RootNode
     13700000: left_gun
     13700002: right_gun

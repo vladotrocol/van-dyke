@@ -1,8 +1,15 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.IO;
+
+using UnityEngine;
+using LitJson;
+
+public class Person {
+	public string name;
+	public int age;
+}
 
 public class KinectSkeleton : MonoBehaviour {
 	
@@ -105,6 +112,16 @@ public class KinectSkeleton : MonoBehaviour {
 														new Vector3(-10.0f, 1.2f, -10.0f) ) );
 		
 		gestures.Add( "raise-both-hands", left_hand );
+		
+		int testing = 10;
+		write_string_to_file("Assets/_Kinect/writeme.txt", "DAE wonder why litjson doesn't work?");
+		
+		Person me = new Person();
+		me.name = "Daniel Bergmann";
+		me.age = 21;
+		
+		write_string_to_file("Assets/_Kinect/gestures.txt", JsonMapper.ToJson (me));
+		
 	}
 	
 	private void add_skeleton_joint( KinectWrapper.Joints joint, GameObject obj ) {
@@ -209,6 +226,25 @@ public class KinectSkeleton : MonoBehaviour {
 		default:
 			return false;
 		}
+	}
+	
+	// JSON related functions
+	public void write_string_to_file(string path, string str) {
+		StreamWriter sw = new StreamWriter(path);
+		sw.Write(str);
+		sw.Close();
+	}
+	
+	public string read_file_as_string(string path) {
+		try {
+            using (StreamReader sr = new StreamReader(path)) {
+                string contents = sr.ReadToEnd();
+                return contents;
+            }
+        } catch (Exception e) {
+            print ("The file could not be read:"+e.Message);
+			return "";
+        }
 	}
 	
 	

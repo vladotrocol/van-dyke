@@ -1,37 +1,35 @@
 fileFormatVersion: 2
-guid: 144062f824fddd242854144230babd63
+guid: 4c63cd29c83832642a19b96efb8e4cde
 ModelImporter:
   serializedVersion: 14
   fileIDToRecycleName:
-    100000: chest
-    100002: head
-    100004: hip
-    100006: left_elbow
-    100008: left_hand
-    100010: left_shoulder
-    100012: polySurface13
-    100014: //RootNode
-    100016: right_elbow
-    100018: right_hand
-    100020: right_shoulder
-    100022: spine
-    400000: chest
-    400002: head
-    400004: hip
-    400006: left_elbow
-    400008: left_hand
-    400010: left_shoulder
-    400012: polySurface13
-    400014: //RootNode
-    400016: right_elbow
-    400018: right_hand
-    400020: right_shoulder
-    400022: spine
+    100000: //RootNode
+    100002: chest
+    100004: head
+    100006: right_hand
+    100008: right_elbow
+    100010: right_shoulder
+    100012: spine
+    100014: left_elbow
+    100016: left_shoulder
+    100018: polySurface13
+    100020: hip
+    100022: left_hand
+    400000: //RootNode
+    400002: chest
+    400004: head
+    400006: right_hand
+    400008: right_elbow
+    400010: right_shoulder
+    400012: spine
+    400014: left_elbow
+    400016: left_shoulder
+    400018: polySurface13
+    400020: hip
+    400022: left_hand
     4300000: polySurface13
-    9500000: //RootNode
     11100000: //RootNode
-    13700000: polySurface13
-    13700002: hip
+    13700000: hip
   materials:
     importMaterials: 1
     materialName: 0
