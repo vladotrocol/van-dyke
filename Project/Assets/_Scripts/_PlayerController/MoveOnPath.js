@@ -26,12 +26,12 @@ function Update () {
 		else
 		{
 			pos = ComputePairMean((dy.CurrentSection() as Section).Pair(count));
-			if(count<dy.currentSections.length-1){
+			if(count<dy.currentSections.length){
 				count++;
 			}
 			else{
 				count = 1;
-				dy.AddNewSection(Random.Range(0,2));
+				dy.AddNewSection(Random.Range(0,3));
 			}
 		}
 	}

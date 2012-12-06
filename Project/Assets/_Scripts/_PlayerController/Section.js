@@ -13,8 +13,9 @@ public class Section{
 		this.obj.name = name;
 		this.position = obj.transform.position;
 		this.size = obj.transform.Find("floor").renderer.bounds.size;
-		this.length = this.obj.Find("LWP").GetComponentsInChildren(Transform).length-1;
+		this.length = this.obj.transform.Find("wayPoints").Find("LWP").GetComponentsInChildren(Transform).length-1;
 		initializeWaypoints();
+		//Debug.Log("Section size:" + this.size);
 	}
 	
 	
