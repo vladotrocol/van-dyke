@@ -1,86 +1,86 @@
 fileFormatVersion: 2
 guid: 08185bdf841c31540a75efd5cb3466b1
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 14
   fileIDToRecycleName:
-    100000: floor
-    100002: L0
-    100004: L1
-    100006: L2
-    100008: L3
-    100010: L4
-    100012: L5
-    100014: M0
-    100016: M1
-    100018: M2
-    100020: M3
-    100022: M4
-    100024: M5
-    100026: R0
-    100028: R1
-    100030: R2
-    100032: R3
-    100034: R4
-    100036: R5
-    100038: //RootNode
-    400000: floor
-    400002: L0
-    400004: L1
-    400006: L2
-    400008: L3
-    400010: L4
-    400012: L5
-    400014: M0
-    400016: M1
-    400018: M2
-    400020: M3
-    400022: M4
-    400024: M5
-    400026: R0
-    400028: R1
-    400030: R2
-    400032: R3
-    400034: R4
-    400036: R5
-    400038: //RootNode
-    2300000: floor
-    2300002: L0
-    2300004: L1
-    2300006: L2
-    2300008: L3
-    2300010: L4
-    2300012: L5
-    2300014: M0
-    2300016: M1
-    2300018: M2
-    2300020: M3
-    2300022: M4
-    2300024: M5
+    100000: M0
+    100002: R4
+    100004: //RootNode
+    100006: L4
+    100008: M4
+    100010: R3
+    100012: R5
+    100014: L3
+    100016: M3
+    100018: R2
+    100020: L2
+    100022: L5
+    100024: M2
+    100026: R1
+    100028: R0
+    100030: L1
+    100032: M1
+    100034: L0
+    100036: M5
+    100038: floor
+    400000: M0
+    400002: R4
+    400004: //RootNode
+    400006: L4
+    400008: M4
+    400010: R3
+    400012: R5
+    400014: L3
+    400016: M3
+    400018: R2
+    400020: L2
+    400022: L5
+    400024: M2
+    400026: R1
+    400028: R0
+    400030: L1
+    400032: M1
+    400034: L0
+    400036: M5
+    400038: floor
+    2300000: M0
+    2300002: R4
+    2300004: L4
+    2300006: M4
+    2300008: R3
+    2300010: R5
+    2300012: L3
+    2300014: M3
+    2300016: R2
+    2300018: L2
+    2300020: L5
+    2300022: M2
+    2300024: R1
     2300026: R0
-    2300028: R1
-    2300030: R2
-    2300032: R3
-    2300034: R4
-    2300036: R5
-    3300000: floor
-    3300002: L0
-    3300004: L1
-    3300006: L2
-    3300008: L3
-    3300010: L4
-    3300012: L5
-    3300014: M0
-    3300016: M1
-    3300018: M2
-    3300020: M3
-    3300022: M4
-    3300024: M5
+    2300028: L1
+    2300030: M1
+    2300032: L0
+    2300034: M5
+    2300036: floor
+    3300000: M0
+    3300002: R4
+    3300004: L4
+    3300006: M4
+    3300008: R3
+    3300010: R5
+    3300012: L3
+    3300014: M3
+    3300016: R2
+    3300018: L2
+    3300020: L5
+    3300022: M2
+    3300024: R1
     3300026: R0
-    3300028: R1
-    3300030: R2
-    3300032: R3
-    3300034: R4
-    3300036: R5
+    3300028: L1
+    3300030: M1
+    3300032: L0
+    3300034: M5
+    3300036: floor
     4300000: floor
     4300002: M0
     4300004: L0
@@ -100,18 +100,15 @@ ModelImporter:
     4300032: M5
     4300034: L5
     4300036: R5
-    9500000: //RootNode
-<<<<<<< HEAD
     11100000: //RootNode
-=======
->>>>>>> 9088ff8b2355542afdf53fa85864b8bd86af2371
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 4
+    generateAnimations: 4
     bakeSimulation: 0
+    splitAnimations: 1
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -127,7 +124,8 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMesh: 0
+    keepQuads: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -137,8 +135,6 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     human: []
     skeleton: []
@@ -150,8 +146,6 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
-    rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  additionalBone: 1
-  animationType: 2
+  createAvatar: 0
   userData: 
