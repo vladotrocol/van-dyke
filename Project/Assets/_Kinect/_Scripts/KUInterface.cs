@@ -20,7 +20,8 @@ using System.Collections;
 /// class for accessing Kinect methods
 /// </summary>
 public class KUInterface : MonoBehaviour {
-
+//public class KUInterface {
+	
     //public variables
     /// <summary>
     /// scales all joint positions by given amount. Do not set to zero.

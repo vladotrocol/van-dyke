@@ -1,20 +1,21 @@
 fileFormatVersion: 2
-guid: d227d57fc19e2f447aea0fe1294e26f6
+guid: 6577c144e5e1f8d40abfcc763686bf35
 ModelImporter:
   serializedVersion: 14
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Coridor1
-    100004: Coridor1Obj
-    400000: //RootNode
-    400002: Coridor1
-    400004: Coridor1Obj
+    100000: Coridor1
+    100002: Coridor1Obj
+    100004: //RootNode
+    400000: Coridor1
+    400002: Coridor1Obj
+    400004: //RootNode
     2300000: Coridor1
     2300002: Coridor1Obj
     3300000: Coridor1
     3300002: Coridor1Obj
     4300000: Coridor1Obj
     4300002: Coridor1
+    9500000: //RootNode
     11100000: //RootNode
   materials:
     importMaterials: 1

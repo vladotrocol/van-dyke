@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-guid: 4a224037913f7464b848e5f9d6162cd6
+guid: 6db34fc8053524e41a789b41c8d4a39a
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - currentSection: {fileID: 100000, guid: 00b3987542ee5634682144a9ce2bb609, type: 2}
-  - mysection: {instanceID: 0}
-  - locator: {instanceID: 0}
-  - newwp: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

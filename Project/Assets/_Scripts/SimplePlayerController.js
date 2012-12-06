@@ -10,7 +10,6 @@ function Start () {
 	StartPos = transform.position;
 }
 
-
 function Update () {
 	if(player.IsDriver()){
 		player.MoveVehicle();
