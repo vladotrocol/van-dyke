@@ -14,7 +14,6 @@ function Start () {
 	startPosz = Play.transform.position.z;
 	startPosy = Play.transform.position.y;
 	startPosx = Play.transform.position.x;
-	
 }
 
 function Update () {

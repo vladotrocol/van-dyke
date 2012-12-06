@@ -5,8 +5,8 @@ public class PathPair{
 	var right: Vector3;
 
 	//Constructor
-	public function PathPair(l:GameObject, r:GameObject){
-		this.left = l.transform.position;
-		this.right = r.transform.position;
+	public function PathPair(l:Vector3, r:Vector3){
+		this.left = l;
+		this.right = r;
 	}
 }

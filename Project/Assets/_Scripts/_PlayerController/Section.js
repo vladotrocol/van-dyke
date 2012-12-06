@@ -1,26 +1,27 @@
 #pragma strict
 
-
 public class Section{
 	var position: Vector3;
 	var size: Vector3;
 	var obj : GameObject;
 	var wp = new Array();
+	var length: int;
 	
 	//Constructor
-	function Section(object:GameObject,nrWp:int , name: String, pos: Vector3, rot: Quaternion){
+	function Section(object:GameObject, name: String, pos: Vector3, rot: Quaternion){
 		this.obj = GameObject.Instantiate(object, pos, rot);
 		this.obj.name = name;
 		this.position = obj.transform.position;
-		this.size = obj.Find("floor").renderer.bounds.size;
-		initializeWaypoints(nrWp);
+		this.size = obj.transform.Find("floor").renderer.bounds.size;
+		this.length = this.obj.Find("LWP").GetComponentsInChildren(Transform).length-1;
+		initializeWaypoints();
 	}
 	
 	
-	function initializeWaypoints(nrWp:int){
-		for(var i=1; i<=nrWp;i++){
-			var l = this.obj.Find("L"+i);
-			var r = this.obj.Find("R"+i);
+	function initializeWaypoints(){
+		for(var i=1; i<=this.length;i++){
+			var l = this.obj.transform.Find("wayPoints").Find("LWP").Find("L"+i).position;
+			var r = this.obj.transform.Find("wayPoints").Find("RWP").Find("R"+i).position;
 			var pair: PathPair = new PathPair(l, r);
 			wp.Push(pair);
 		}
@@ -30,4 +31,17 @@ public class Section{
 	function Pair(nr:int){
 		return wp[nr] as PathPair;
 	}
+	
+	function Position(){
+		return this.position;
+	}
+	
+	function Size(){
+		return this.size;
+	}
+	
+	function Obj(){
+		return this.obj as GameObject;
+	}
+	
 }
