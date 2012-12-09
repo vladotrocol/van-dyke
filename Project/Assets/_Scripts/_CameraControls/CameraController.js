@@ -23,7 +23,7 @@ function Start () {
 	Play = GameObject.FindGameObjectWithTag("Player");
 	MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 	// issue if the camera is slower than 0.8 (listing to the left)
-	CameraSpeed = 0.2;
+	CameraSpeed = 0.03;
 	startPosz = Play.transform.position.z;
 	startPosy = Play.transform.position.y;
 	startPosx = Play.transform.position.x;
@@ -40,37 +40,25 @@ function Update () {
 	
 	//update camera for forward movement
 	if (desiredPosz != startPosz){
-		transform.Translate(0.0f, 0.0f, (desiredPosz - startPosz));
+		transform.position += Vector3(0.0f, 0.0f, (desiredPosz - startPosz));
 		startPosz = desiredPosz;
 	}
 	
 	//update camera for up/down (jumping, not tested should work) 
 	if (desiredPosy != startPosy){
 	//				  Horizontal,                  Verticle, Depth 
-		transform.Translate(0.0f, (desiredPosy - startPosy), 0.0f);
+		transform.position += Vector3(0.0f, (desiredPosy - startPosy), 0.0f);
 		startPosy = desiredPosy;
 	}	
 	
 	//Basic version follows pecisley 
-	/*if (desiredPosx != startPosx){
-	//					Horizontal, Verticle, Depth 
-		transform.Translate((desiredPosx - startPosx),0.0f, 0.0f);
-		startPosx = desiredPosx;
-	}*/
-	
 	if (desiredPosx != startPosx){
-	
-		if(curPosx + CameraSpeed < desiredPosx){
-			curPosx = curPosx + CameraSpeed;
-			
-		} else if(curPosx - CameraSpeed > desiredPosx){
-			curPosx = curPosx - CameraSpeed;
-			
-		}else{
-			curPosx = desiredPosx;
-			
-		}
-		transform.Translate((curPosx - startPosx ), 0.0f, 0.0f);
-		startPosx = curPosx;
+	//					Horizontal, Verticle, Depth 
+		transform.position += Vector3((desiredPosx - startPosx),0.0f, 0.0f);
+		
+		startPosx = desiredPosx;
 	}
+	
+	desiredPosx = Play.transform.position.x;
+	startPosx = Play.transform.position.x;
 }
