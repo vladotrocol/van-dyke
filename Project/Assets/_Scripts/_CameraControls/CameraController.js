@@ -23,7 +23,7 @@ function Start () {
 	Play = GameObject.FindGameObjectWithTag("Player");
 	MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 	// issue if the camera is slower than 0.8 (listing to the left)
-	CameraSpeed = 0.03;
+	CameraSpeed = 0.2;
 	startPosz = Play.transform.position.z;
 	startPosy = Play.transform.position.y;
 	startPosx = Play.transform.position.x;
@@ -59,6 +59,20 @@ function Update () {
 		startPosx = desiredPosx;
 	}
 	
-	desiredPosx = Play.transform.position.x;
-	startPosx = Play.transform.position.x;
+	/*if (desiredPosx != startPosx){
+	
+		if(curPosx + CameraSpeed < desiredPosx){
+			curPosx = curPosx + CameraSpeed;
+			
+		} else if(curPosx - CameraSpeed > desiredPosx){
+			curPosx = curPosx - CameraSpeed;
+			
+		}else{
+			curPosx = desiredPosx;
+			
+		}
+		transform.position += Vector3((curPosx - startPosx ), 0.0f, 0.0f);
+		
+		startPosx = curPosx;
+	}*/
 }

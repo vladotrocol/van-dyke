@@ -1,0 +1,417 @@
+fileFormatVersion: 2
+guid: 1dc3a6551848fc842ae2e3ba8ac6912f
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: board
+    100002: board1
+    100004: ceiling
+    100006: door
+    100008: door 1
+    100010: door 2
+    100012: door 3
+    100014: door 4
+    100016: door1
+    100018: door2
+    100020: door3
+    100022: doorframe
+    100024: doorframe 1
+    100026: doorframe 2
+    100028: doorframe 3
+    100030: doors
+    100032: floor
+    100034: knob
+    100036: knob 1
+    100038: knob 2
+    100040: knob 3
+    100042: L1
+    100044: L2
+    100046: L3
+    100048: L4
+    100050: L5
+    100052: L6
+    100054: L7
+    100056: L8
+    100058: L9
+    100060: light1
+    100062: light10
+    100064: light11
+    100066: light12
+    100068: light13
+    100070: light14
+    100072: light15
+    100074: light16
+    100076: light17
+    100078: light18
+    100080: light2
+    100082: light3
+    100084: light4
+    100086: light5
+    100088: light6
+    100090: light7
+    100092: light8
+    100094: light9
+    100096: lights
+    100098: locker
+    100100: LWP
+    100102: object1
+    100104: object1 1
+    100106: object2
+    100108: object2 1
+    100110: object3
+    100112: object3 1
+    100114: R1
+    100116: R2
+    100118: R3
+    100120: R4
+    100122: R5
+    100124: R6
+    100126: R7
+    100128: R8
+    100130: R9
+    100132: RWP
+    100134: //RootNode
+    100136: shelf2
+    100138: shelf2 1
+    100140: shelf3
+    100142: shelf3 1
+    100144: shelves
+    100146: shelves 1
+    100148: shelves1
+    100150: wall1
+    100152: wall10
+    100154: wall2
+    100156: wall3
+    100158: wall4
+    100160: wall5
+    100162: wall6
+    100164: wall7
+    100166: wall8
+    100168: wall9
+    100170: walldecs
+    100172: walls
+    100174: wayPoints
+    100176: window
+    100178: window1
+    100180: window2
+    100182: window3
+    400000: board
+    400002: board1
+    400004: ceiling
+    400006: door
+    400008: door 1
+    400010: door 2
+    400012: door 3
+    400014: door 4
+    400016: door1
+    400018: door2
+    400020: door3
+    400022: doorframe
+    400024: doorframe 1
+    400026: doorframe 2
+    400028: doorframe 3
+    400030: doors
+    400032: floor
+    400034: knob
+    400036: knob 1
+    400038: knob 2
+    400040: knob 3
+    400042: L1
+    400044: L2
+    400046: L3
+    400048: L4
+    400050: L5
+    400052: L6
+    400054: L7
+    400056: L8
+    400058: L9
+    400060: light1
+    400062: light10
+    400064: light11
+    400066: light12
+    400068: light13
+    400070: light14
+    400072: light15
+    400074: light16
+    400076: light17
+    400078: light18
+    400080: light2
+    400082: light3
+    400084: light4
+    400086: light5
+    400088: light6
+    400090: light7
+    400092: light8
+    400094: light9
+    400096: lights
+    400098: locker
+    400100: LWP
+    400102: object1
+    400104: object1 1
+    400106: object2
+    400108: object2 1
+    400110: object3
+    400112: object3 1
+    400114: R1
+    400116: R2
+    400118: R3
+    400120: R4
+    400122: R5
+    400124: R6
+    400126: R7
+    400128: R8
+    400130: R9
+    400132: RWP
+    400134: //RootNode
+    400136: shelf2
+    400138: shelf2 1
+    400140: shelf3
+    400142: shelf3 1
+    400144: shelves
+    400146: shelves 1
+    400148: shelves1
+    400150: wall1
+    400152: wall10
+    400154: wall2
+    400156: wall3
+    400158: wall4
+    400160: wall5
+    400162: wall6
+    400164: wall7
+    400166: wall8
+    400168: wall9
+    400170: walldecs
+    400172: walls
+    400174: wayPoints
+    400176: window
+    400178: window1
+    400180: window2
+    400182: window3
+    2300000: board
+    2300002: board1
+    2300004: ceiling
+    2300006: door 1
+    2300008: door 2
+    2300010: door 3
+    2300012: door 4
+    2300014: doorframe
+    2300016: doorframe 1
+    2300018: doorframe 2
+    2300020: doorframe 3
+    2300022: floor
+    2300024: knob
+    2300026: knob 1
+    2300028: knob 2
+    2300030: knob 3
+    2300032: light1
+    2300034: light10
+    2300036: light11
+    2300038: light12
+    2300040: light13
+    2300042: light14
+    2300044: light15
+    2300046: light16
+    2300048: light17
+    2300050: light18
+    2300052: light2
+    2300054: light3
+    2300056: light4
+    2300058: light5
+    2300060: light6
+    2300062: light7
+    2300064: light8
+    2300066: light9
+    2300068: locker
+    2300070: object1
+    2300072: object1 1
+    2300074: object2
+    2300076: object2 1
+    2300078: object3
+    2300080: object3 1
+    2300082: shelf2
+    2300084: shelf2 1
+    2300086: shelf3
+    2300088: shelf3 1
+    2300090: wall1
+    2300092: wall10
+    2300094: wall2
+    2300096: wall3
+    2300098: wall4
+    2300100: wall5
+    2300102: wall6
+    2300104: wall7
+    2300106: wall8
+    2300108: wall9
+    2300110: window
+    2300112: window1
+    2300114: window2
+    2300116: window3
+    3300000: board
+    3300002: board1
+    3300004: ceiling
+    3300006: door 1
+    3300008: door 2
+    3300010: door 3
+    3300012: door 4
+    3300014: doorframe
+    3300016: doorframe 1
+    3300018: doorframe 2
+    3300020: doorframe 3
+    3300022: floor
+    3300024: knob
+    3300026: knob 1
+    3300028: knob 2
+    3300030: knob 3
+    3300032: light1
+    3300034: light10
+    3300036: light11
+    3300038: light12
+    3300040: light13
+    3300042: light14
+    3300044: light15
+    3300046: light16
+    3300048: light17
+    3300050: light18
+    3300052: light2
+    3300054: light3
+    3300056: light4
+    3300058: light5
+    3300060: light6
+    3300062: light7
+    3300064: light8
+    3300066: light9
+    3300068: locker
+    3300070: object1
+    3300072: object1 1
+    3300074: object2
+    3300076: object2 1
+    3300078: object3
+    3300080: object3 1
+    3300082: shelf2
+    3300084: shelf2 1
+    3300086: shelf3
+    3300088: shelf3 1
+    3300090: wall1
+    3300092: wall10
+    3300094: wall2
+    3300096: wall3
+    3300098: wall4
+    3300100: wall5
+    3300102: wall6
+    3300104: wall7
+    3300106: wall8
+    3300108: wall9
+    3300110: window
+    3300112: window1
+    3300114: window2
+    3300116: window3
+    4300000: floor
+    4300002: light4
+    4300004: light3
+    4300006: light2
+    4300008: light1
+    4300010: light5
+    4300012: light6
+    4300014: light7
+    4300016: light8
+    4300018: light9
+    4300020: light10
+    4300022: light11
+    4300024: light12
+    4300026: light13
+    4300028: light14
+    4300030: light15
+    4300032: light16
+    4300034: light17
+    4300036: light18
+    4300038: wall1
+    4300040: wall2
+    4300042: wall3
+    4300044: wall4
+    4300046: wall5
+    4300048: wall6
+    4300050: wall7
+    4300052: wall8
+    4300054: wall9
+    4300056: wall10
+    4300058: doorframe
+    4300060: knob
+    4300062: door
+    4300064: doorframe
+    4300066: knob
+    4300068: door
+    4300070: doorframe
+    4300072: knob
+    4300074: door
+    4300076: doorframe
+    4300078: knob
+    4300080: door
+    4300082: window3
+    4300084: window1
+    4300086: window2
+    4300088: board1
+    4300090: window
+    4300092: board
+    4300094: shelf2
+    4300096: shelf3
+    4300098: object1
+    4300100: object2
+    4300102: object3
+    4300104: shelf2
+    4300106: shelf3
+    4300108: object1
+    4300110: object2
+    4300112: object3
+    4300114: locker
+    4300116: ceiling
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

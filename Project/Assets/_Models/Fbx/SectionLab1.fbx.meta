@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 315243c14849b7b42836416ca60c8d2e
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: board
+    100002: ceiling
+    100004: door
+    100006: door 1
+    100008: doorframe
+    100010: floor
+    100012: knob
+    100014: L1
+    100016: L2
+    100018: L3
+    100020: light1
+    100022: light2
+    100024: light3
+    100026: light4
+    100028: lights
+    100030: LWP
+    100032: R1
+    100034: R2
+    100036: R3
+    100038: RWP
+    100040: //RootNode
+    100042: wall1
+    100044: wall2
+    100046: wayPoints
+    100048: window
+    400000: board
+    400002: ceiling
+    400004: door
+    400006: door 1
+    400008: doorframe
+    400010: floor
+    400012: knob
+    400014: L1
+    400016: L2
+    400018: L3
+    400020: light1
+    400022: light2
+    400024: light3
+    400026: light4
+    400028: lights
+    400030: LWP
+    400032: R1
+    400034: R2
+    400036: R3
+    400038: RWP
+    400040: //RootNode
+    400042: wall1
+    400044: wall2
+    400046: wayPoints
+    400048: window
+    2300000: board
+    2300002: ceiling
+    2300004: door 1
+    2300006: doorframe
+    2300008: floor
+    2300010: knob
+    2300012: light1
+    2300014: light2
+    2300016: light3
+    2300018: light4
+    2300020: wall1
+    2300022: wall2
+    2300024: window
+    3300000: board
+    3300002: ceiling
+    3300004: door 1
+    3300006: doorframe
+    3300008: floor
+    3300010: knob
+    3300012: light1
+    3300014: light2
+    3300016: light3
+    3300018: light4
+    3300020: wall1
+    3300022: wall2
+    3300024: window
+    4300000: floor
+    4300002: light4
+    4300004: light3
+    4300006: light2
+    4300008: light1
+    4300010: ceiling
+    4300012: wall1
+    4300014: wall2
+    4300016: board
+    4300018: window
+    4300020: doorframe
+    4300022: knob
+    4300024: door
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
