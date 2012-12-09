@@ -9,6 +9,7 @@ using LitJson;
 public class Person {
 	public string name;
 	public int age;
+	public double height;
 }
 
 public class KinectSkeleton : MonoBehaviour {
@@ -119,9 +120,15 @@ public class KinectSkeleton : MonoBehaviour {
 		Person me = new Person();
 		me.name = "Daniel Bergmann";
 		me.age = 21;
+		me.height = 175.0;
 		
 		write_string_to_file("Assets/_Kinect/gestures.txt", JsonMapper.ToJson (me));
 		
+		Person me2 = (Person) JsonMapper.ToObject<Person>(read_file_as_string("Assets/_Kinect/gestures.txt"));
+		
+		print (me2.name);
+		print (me2.age+5);
+		print (me2.height+3.153);
 	}
 	
 	private void add_skeleton_joint( KinectWrapper.Joints joint, GameObject obj ) {
@@ -229,6 +236,10 @@ public class KinectSkeleton : MonoBehaviour {
 	}
 	
 	// JSON related functions
+//	public void serialize_object_to_file( System.Object object ) {
+//		
+//	}
+	
 	public void write_string_to_file(string path, string str) {
 		StreamWriter sw = new StreamWriter(path);
 		sw.Write(str);
