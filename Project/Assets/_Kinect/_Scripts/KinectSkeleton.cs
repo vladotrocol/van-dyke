@@ -59,6 +59,7 @@ public class KinectSkeleton : MonoBehaviour {
 	};
 	
 	private Dictionary<String, Gesture> gestures = new Dictionary<String, Gesture>();
+	private Dictionary<String, AnimatedGesture> animated_gestures = new Dictionary<String, AnimatedGesture>();
 	
 	// Use this for initialization
 	void Start () {
@@ -114,7 +115,6 @@ public class KinectSkeleton : MonoBehaviour {
 		
 		gestures.Add( "raise-both-hands", left_hand );
 		
-		int testing = 10;
 		write_string_to_file("Assets/_Kinect/writeme.txt", "DAE wonder why litjson doesn't work?");
 		
 		Person me = new Person();
@@ -164,17 +164,17 @@ public class KinectSkeleton : MonoBehaviour {
 		}
 		
 		foreach (KeyValuePair<string, Gesture> pair in gestures) {
-			bool active = true;
+//			bool active = true;
+//			
+//			// check all the joint constraints are true, fail fast on a false joint constraint.
+//			foreach (JointConstraint constraint in pair.Value.constraints) {
+//				if ( !check_joint_constraint( constraint ) ) {
+//					active = false;
+//					break;
+//				}
+//			}
 			
-			// check all the joint constraints are true, fail fast on a false joint constraint.
-			foreach (JointConstraint constraint in pair.Value.constraints) {
-				if ( !check_joint_constraint( constraint ) ) {
-					active = false;
-					break;
-				}
-			}
-			
-			if ( active ) {
+			if ( pair.Value.is_active() ) {
 				print("active gesture: "+pair.Key);
 			}
 		}
@@ -192,47 +192,12 @@ public class KinectSkeleton : MonoBehaviour {
 		
 	}
 	
-	// joint constraint check
-	bool check_joint_constraint( JointConstraint constraint ) {
-		Vector3 ja, jb;
-		
-		switch (constraint.relation) {
-		case JointConstraint.Relations.DISTANCE:
-			switch (constraint.operation) {
-			case JointConstraint.Operators.GREATER_THAN:
-				return Vector3.Distance(raw_joint_pos[(int)constraint.joint_a], raw_joint_pos[(int)constraint.joint_b]) > constraint.val.x;
-			case JointConstraint.Operators.LESS_THAN:
-				return Vector3.Distance(raw_joint_pos[(int)constraint.joint_a], raw_joint_pos[(int)constraint.joint_b]) < constraint.val.x;
-			default:
-				return false;
-			}
-		case JointConstraint.Relations.COMPONENT_DISTANCE:
-			ja = raw_joint_pos[(int)constraint.joint_a];
-			jb = raw_joint_pos[(int)constraint.joint_b];
-			
-			switch (constraint.operation) {
-			case JointConstraint.Operators.GREATER_THAN:
-				return (ja.x - jb.x) > constraint.val.x && (ja.y - jb.y) > constraint.val.y && (ja.z - jb.z) > constraint.val.z;
-			case JointConstraint.Operators.LESS_THAN:
-				return (ja.x - jb.x) < constraint.val.x && (ja.y - jb.y) < constraint.val.y && (ja.z - jb.z) < constraint.val.z;
-			default:
-				return false;
-			}
-		case JointConstraint.Relations.ABS_COMPONENT_DISTANCE:
-			ja = raw_joint_pos[(int)constraint.joint_a];
-			jb = raw_joint_pos[(int)constraint.joint_b];
-			
-			switch (constraint.operation) {
-			case JointConstraint.Operators.GREATER_THAN:
-				return Math.Abs(ja.x - jb.x) > constraint.val.x && Math.Abs(ja.y - jb.y) > constraint.val.y && Math.Abs(ja.z - jb.z) > constraint.val.z;
-			case JointConstraint.Operators.LESS_THAN:
-				return Math.Abs(ja.x - jb.x) < constraint.val.x && Math.Abs(ja.y - jb.y) < constraint.val.y && Math.Abs(ja.z - jb.z) < constraint.val.z;
-			default:
-				return false;
-			}
-		default:
-			return false;
-		}
+	public Vector3 get_raw_joint(KinectWrapper.Joints joint) {
+		return raw_joint_pos[(int)joint];
+	}
+	
+	public Vector3 get_joint(KinectWrapper.Joints joint) {
+		return game_joint_pos[(int)joint];
 	}
 	
 	// JSON related functions
