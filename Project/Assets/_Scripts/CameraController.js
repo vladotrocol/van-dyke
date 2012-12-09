@@ -40,25 +40,26 @@ function Update () {
 	
 	//update camera for forward movement
 	if (desiredPosz != startPosz){
-		transform.Translate(0.0f, 0.0f, (desiredPosz - startPosz));
+		transform.position += Vector3(0.0f, 0.0f, (desiredPosz - startPosz));
 		startPosz = desiredPosz;
 	}
 	
 	//update camera for up/down (jumping, not tested should work) 
 	if (desiredPosy != startPosy){
 	//				  Horizontal,                  Verticle, Depth 
-		transform.Translate(0.0f, (desiredPosy - startPosy), 0.0f);
+		transform.position += Vector3(0.0f, (desiredPosy - startPosy), 0.0f);
 		startPosy = desiredPosy;
 	}	
 	
 	//Basic version follows pecisley 
-	/*if (desiredPosx != startPosx){
-	//					Horizontal, Verticle, Depth 
-		transform.Translate((desiredPosx - startPosx),0.0f, 0.0f);
-		startPosx = desiredPosx;
-	}*/
-	
 	if (desiredPosx != startPosx){
+	//					Horizontal, Verticle, Depth 
+		transform.position += Vector3((desiredPosx - startPosx),0.0f, 0.0f);
+		
+		startPosx = desiredPosx;
+	}
+	
+	/*if (desiredPosx != startPosx){
 	
 		if(curPosx + CameraSpeed < desiredPosx){
 			curPosx = curPosx + CameraSpeed;
@@ -70,7 +71,8 @@ function Update () {
 			curPosx = desiredPosx;
 			
 		}
-		transform.Translate((curPosx - startPosx ), 0.0f, 0.0f);
+		transform.position += Vector3((curPosx - startPosx ), 0.0f, 0.0f);
+		
 		startPosx = curPosx;
-	}
+	}*/
 }

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 4c63cd29c83832642a19b96efb8e4cde
 ModelImporter:
-  serializedVersion: 14
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
     100002: chest
@@ -30,14 +30,14 @@ ModelImporter:
     4300000: polySurface13
     11100000: //RootNode
     13700000: hip
+    13700002: polySurface13
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
-    generateAnimations: 4
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
-    splitAnimations: 1
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -53,8 +53,7 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMesh: 0
-    keepQuads: 0
+    optimizeMeshForGPU: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -64,6 +63,8 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
   humanDescription:
     human: []
     skeleton: []
@@ -75,6 +76,8 @@ ModelImporter:
     armStretch: .0500000007
     legStretch: .0500000007
     feetSpacing: 0
+    rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  createAvatar: 0
+  additionalBone: 1
+  animationType: 1
   userData: 
