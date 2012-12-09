@@ -31,7 +31,7 @@ function Update () {
 			}
 			else{
 				count = 1;
-				dy.AddNewSection(Random.Range(0,3));
+				dy.AddNewSection(Random.Range(0,2));
 			}
 		}
 	}
